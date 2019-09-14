@@ -11,6 +11,7 @@
 *.ilk
 *.map
 *.exp
+*.hi
 
 # Precompiled Headers
 *.gch
@@ -50,3 +51,7 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Directories
+fm_modules/
+bak/
