@@ -1,0 +1,23 @@
+import Base@0
+
+list : List(Word)
+  Word$[0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+main : !List(Word)
+  dup list.id   = list.id*256
+  dup loop = Data.List@0/map-f*256(~Word, ~Word, #{x} x + 1)
+
+  // Uncomment this line to try running code 2~20 times
+  //dup list = rec(*1048576, ~List(Word), #loop, #list)
+  dup list = rec(*1000, ~List(Word), #loop, #list)
+
+  # list.id(~Word, list)

@@ -1,0 +1,11 @@
+import Base@0
+
+main : !List(Word)
+  let list = Word$[10, 9, 8, 7, 6, 5, 4, 3, 1 ,2, 0]
+  dup loop = sort_words(*)
+
+  // Uncomment this line to try running code 2^22 times
+  //dup list = rec(*4194304, ~List(Word), #loop, #list)
+  dup list = rec(*1000, ~List(Word), #loop, #list)
+
+  # list

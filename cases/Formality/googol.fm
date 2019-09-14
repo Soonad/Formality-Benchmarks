@@ -1,0 +1,16 @@
+import Example.ExpMod.Tuples@0
+
+// Computes `a^x mod n`
+exp_mod {a, x, N}
+  dup ax        = x(a)                    // a^x
+  dup N         = N                       // clones N
+# dup tuple     = Tup.rev_range(N)        // tuple from N-1 to 0
+  dup get_last  = Tup.last(N)             // getter for N
+  dup rotate_ax = ax(Tup.rotate_right(N)) // ax-times rotator
+# get_last(rotate_ax(tuple))              // rotates, returns fst
+
+main
+  let a = *10
+  let x = *100
+  let N = *13
+  exp_mod(#a, x, #N)

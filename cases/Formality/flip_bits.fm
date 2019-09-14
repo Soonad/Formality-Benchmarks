@@ -1,0 +1,21 @@
+import Base@0
+
+#flipBits*N : ! {bits: List(Word)} -> List(Word)
+  case/List bits
+  | cons  => (if head .= 0: {x : List(Word)}
+        cons(~Word, 1, x)
+      else: {x : List(Word)}
+        cons(~Word, 0, x)) (flipBits(tail))
+  | nil   => nil(~Word)
+  : List(Word)
+  halt: Word$[0]
+
+main: !List(Word)
+  let bits = Word$[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  dup f = flipBits(*)
+
+  // Uncomment this line to try running code 2^20 times
+  //dup bits = rec(*1048576, ~List(Word), #f, #bits)
+  dup bits = rec(*1000, ~List(Word), #f, #bits)
+
+  # bits
